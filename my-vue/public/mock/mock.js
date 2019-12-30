@@ -1,6 +1,6 @@
 const Mock =require("mockjs")
 let arr=[];
-for(let i=0;i<=2;i++){
+for(let i=0;i<=5;i++){
   arr.push({
       name:Mock.Random.cname(),
       index:0,

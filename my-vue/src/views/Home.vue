@@ -2,8 +2,20 @@
   <div class="home">
     <div class="tab">
       <div class="tab1">
-        <p v-for="(item,index) in tablist" :key="index" @click="itemClick(index)">{{item.name}}</p>
+        <p v-for="(item,index) in tablist" :key="index" @click="itemClick(index)" :class="{active1:aaa==index}">{{item.name}}</p>
       </div>
+    </div>
+    <div class="content">
+        <ul v-for="(item,index) in list" :key="index">
+          <li>
+            <span>12fg15df4wf5</span>
+            <span>待审批</span>
+          </li>
+          <li>
+            <span>申请人</span> <h5>{}</h5>
+          </li>
+          <li></li>
+        </ul>
     </div>
   </div>
 </template>
@@ -33,11 +45,12 @@ export default {
     getdata() {
       this.$http.get("/list").then(res => {
         this.newarr = res.data.list;
+        console.log(this.newarr)
       });
     },
     itemClick(i) {
       this.aaa = i;
-      console.log(this.aaa);
+    console.log(this.newarr[i])
     }
   }
 };
